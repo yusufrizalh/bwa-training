@@ -76,7 +76,49 @@
             echo "Tidak ada warna favorit";
             break;
     }
+    echo "<br>";
+    /*
+        # Looping / Pengulangan
+          > Counted loop    : FOR, FOREACH
+          > Uncounted loop  : WHILE, DO .. WHILE
+    */
+
+    // FOR Loop
+    for ($nilai = 1; $nilai <= 100; $nilai++) {
+        echo "Nilai ke-" . $nilai . "<br>";
+    }
+    echo "<br>";
+
+    // FOREACH Loop
+    // array: wadah untuk menampung banyak nilai dengan tipe data yg seragam
+    $mobil = array("sedan", "truck", "SUV", "jeep", "sport", "bus");
+    foreach ($mobil as $mobildata) {
+        echo "Mobil saya adalah " . $mobildata . "<br>";
+    }
+
+    // array associative: key and value 
+    $karyawan = array("Henry" => "35", "Mariana" => "20", "Frankie" => "24");
+    foreach ($karyawan as $key => $value) {
+        echo ("Nama: $key dan usia: $value <br>");
+    }
+
+    // WHILE Loop
+    $nilaiawal = 1;
+    while ($nilaiawal < 1) {
+        echo "Nilai adalah " . $nilaiawal . "<br>";
+        $nilaiawal++;
+    }
+
+    // DO .. WHILE Loop
+    $nilaisaya = 1;
+    do {
+        echo "Nilai saya : " . $nilaisaya . "<br>";
+        $nilaisaya++;
+    } while ($nilaisaya < 1);
+
     ?>
+
+
 </body>
 
 </html>
