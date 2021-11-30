@@ -5,7 +5,6 @@
       > hierarchical inheritance: 1 parent dan banyak child
 */
 
-
 // Employee sebagai class parent
 class Employee
 {
