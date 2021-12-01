@@ -55,11 +55,32 @@ try {
     */
 
     // mengisi data kedalam table employee
+    /*
     $insertIntoEmployee = "INSERT INTO employee (emp_name, emp_email) 
         VALUES ('Jonathan', 'jonathan@email.com')";
     $connection3->exec($insertIntoEmployee);
     echo "Insert data into employee is sucessful!";
+    */
+
+    // mengisi banyak data kedalam table sekaligus
+    // bulk
+    $connection3->beginTransaction();
+    $connection3->exec("INSERT INTO employee(emp_name, emp_email) VALUES (
+        'Stephany', 'stephany@email.com'
+    )");
+    $connection3->exec("INSERT INTO employee(emp_name, emp_email) VALUES (
+        'Henry', 'henry@email.com'
+    )");
+    $connection3->exec("INSERT INTO employee(emp_name, emp_email) VALUES (
+        'Bennedic', 'bennedic@email.com'
+    )");
+    $connection3->exec("INSERT INTO employee(emp_name, emp_email) VALUES (
+        'Angelica', 'angelica@email.com'
+    )");
+    $connection3->commit();
+    echo "Insert many data into employee is succesful!";
 } catch (PDOException $ex) {
+    $connection3->rollBack();
     echo "Error on Table insertion: " . $ex->getMessage();
 }
 
