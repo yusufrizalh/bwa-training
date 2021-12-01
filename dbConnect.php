@@ -43,6 +43,7 @@ try {
     */
 
     // membuat table
+    /*
     $createTableEmployee = "CREATE TABLE employee(
         emp_id INT(15) PRIMARY KEY AUTO_INCREMENT, 
         emp_name VARCHAR(255),
@@ -51,8 +52,15 @@ try {
     )";
     $connection3->exec($createTableEmployee);
     echo "Table Employee is succesfully created!";
+    */
+
+    // mengisi data kedalam table employee
+    $insertIntoEmployee = "INSERT INTO employee (emp_name, emp_email) 
+        VALUES ('Jonathan', 'jonathan@email.com')";
+    $connection3->exec($insertIntoEmployee);
+    echo "Insert data into employee is sucessful!";
 } catch (PDOException $ex) {
-    echo "Error on Table creation: " . $ex->getMessage();
+    echo "Error on Table insertion: " . $ex->getMessage();
 }
 
 $connection3 = null;
