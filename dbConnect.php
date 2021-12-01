@@ -64,6 +64,7 @@ try {
 
     // mengisi banyak data kedalam table sekaligus
     // bulk
+    /*
     $connection3->beginTransaction();
     $connection3->exec("INSERT INTO employee(emp_name, emp_email) VALUES (
         'Stephany', 'stephany@email.com'
@@ -79,8 +80,31 @@ try {
     )");
     $connection3->commit();
     echo "Insert many data into employee is succesful!";
+    */
+
+    // prepared statements + bind parameters
+    $stmt = $connection3->prepare("INSERT INTO employee (emp_name, emp_email) VALUES (
+        :emp_name, :emp_email
+    )");
+    $stmt->bindParam(':emp_name', $name);
+    $stmt->bindParam(':emp_email', $email);
+
+    // data yang ingin dimasukkan kedalam table
+    $name = "John";
+    $email = "john@email.com";
+    $stmt->execute();
+    $name = "Mariana";
+    $email = "mariana@email.com";
+    $stmt->execute();
+    $name = "Roberto";
+    $email = "roberto@email.com";
+    $stmt->execute();
+    $name = "Paulo";
+    $email = "paulo@email.com";
+    $stmt->execute();
+    echo "Insert many data into employee is succesful!";
 } catch (PDOException $ex) {
-    $connection3->rollBack();
+    // $connection3->rollBack();
     echo "Error on Table insertion: " . $ex->getMessage();
 }
 
