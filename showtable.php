@@ -9,6 +9,9 @@
 </head>
 
 <body>
+    <h2>Show data from employee table</h2>
+    <h3>Add Employee</h3>
+
     <table border="1" width="70%">
         <tr>
             <th>Employee ID</th>
