@@ -9,6 +9,7 @@
 $username = "root";
 $password = "";
 $host = "localhost";
+$dbname = "db_bwa";
 
 // MySQLi object oriented
 /*
@@ -30,9 +31,28 @@ echo ("Connection with procedural way is succesful");
 
 // PHP Data Object (PDO)
 try {
-    $connection3 = new PDO("mysql:host=$host;dbname=db_bwa", $username, $password);
+    // membuat koneksi
+    $connection3 = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
     $connection3->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "Connection with PDO way is succesful";
+
+    // membuat database
+    /*
+    $createDB = "CREATE DATABASE db_bwa";
+    $connection3->exec($createDB);
+    echo "Database created is succesful!";
+    */
+
+    // membuat table
+    $createTableEmployee = "CREATE TABLE employee(
+        emp_id INT(15) PRIMARY KEY AUTO_INCREMENT, 
+        emp_name VARCHAR(255),
+        emp_email VARCHAR(255),
+        emp_hire_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    )";
+    $connection3->exec($createTableEmployee);
+    echo "Table Employee is succesfully created!";
 } catch (PDOException $ex) {
-    echo "Connection is failed: " . $ex->getMessage();
+    echo "Error on Table creation: " . $ex->getMessage();
 }
+
+$connection3 = null;
