@@ -10,7 +10,7 @@
 
 <body>
     <h2>Show data from employee table</h2>
-    <h3>Add Employee</h3>
+    <h3><a href="formtable.php">Add Employee</a></h3>
 
     <table border="1" width="70%">
         <tr>
