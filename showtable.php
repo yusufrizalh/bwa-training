@@ -49,7 +49,7 @@
             $dbconn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
             $dbconn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $stmt = $dbconn->prepare("SELECT * FROM employee ORDER BY emp_name DESC");
+            $stmt = $dbconn->prepare("SELECT * FROM employee ORDER BY emp_id ASC");
             // $stmt = $dbconn->prepare("SELECT * FROM employee WHERE emp_name LIKE '%p%'");
             $stmt->execute();
 
