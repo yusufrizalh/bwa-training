@@ -50,6 +50,7 @@
             $dbconn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
             $stmt = $dbconn->prepare("SELECT * FROM employee");
+            // $stmt = $dbconn->prepare("SELECT * FROM employee WHERE emp_name LIKE '%p%'");
             $stmt->execute();
 
             $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
