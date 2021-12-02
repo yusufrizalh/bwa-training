@@ -38,6 +38,7 @@
         <hr>
         <h2>Show data from employee table</h2>
         <h3><a href="formtable.php" class="btn btn-link">Add Employee</a></h3>
+        <h3><a href="exportexcel.php" class="btn btn-link">Export Excel</a></h3>
 
         <table class="table table-hover table-striped table-bordered">
             <tr>
